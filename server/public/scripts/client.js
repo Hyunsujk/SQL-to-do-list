@@ -52,6 +52,7 @@ function render() {
     <tr>
     <td>${item.item}</td>
     <td><button class ="js-btn-complete">Complete</button></td>
+    <td><button class ="js-btn-delete">Delete</button></td>
     </tr>`);
   }
 }
