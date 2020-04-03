@@ -3,7 +3,7 @@ $(document).ready(init);
 let itemList = [];
 function init() {
   getList();
-  $(.'js-btn-add').on('click', addItem)
+  $(".js-btn-add").on("click", addItem);
 }
 
 function addItem() {
