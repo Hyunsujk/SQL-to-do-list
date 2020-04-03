@@ -3,10 +3,15 @@ $(document).ready(init);
 let itemList = [];
 function init() {
   getList();
-  $(".js-btn-add").on("click", addItem);
+  $(".js-btn-add").on("click", clickAdd);
+  $(".js-btn-delete").on("click", clickDelete);
 }
 
-function addItem() {
+//
+// EVENT HANDLERS
+//-----------------
+
+function clickAdd() {
   const newItem = {
     item: $(".js-new-item").val(),
     complete: "N",
@@ -14,6 +19,14 @@ function addItem() {
   saveItem(newItem);
   $(".js-new-item").val("");
 }
+
+function clickDelete() {
+  const itemId = event.target.dataset.id;
+  deleteItem(itemId);
+}
+//
+// API INTERACTION
+//-------------------
 
 function saveItem(newItem) {
   $.ajax({
@@ -45,14 +58,28 @@ function getList() {
     });
 }
 
+function deleteItem(id) {
+  $.ajax({
+    method: "DELETE",
+    url: `/list/${id}`,
+  })
+    .then((response) => {
+      getList();
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+      console.warn("There was an error deleting the item");
+    });
+}
+
 function render() {
   $(".js-container").empty();
   for (let item of itemList) {
     $(".js-container").append(`
     <tr>
     <td>${item.item}</td>
-    <td><button class ="js-btn-complete">Complete</button></td>
-    <td><button class ="js-btn-delete">Delete</button></td>
+    <td><button class ="js-btn-complete" data-id="${item.id}">Complete</button></td>
+    <td><button class ="js-btn-delete" data-id="${item.id}">Delete</button></td>
     </tr>`);
   }
 }
