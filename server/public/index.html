@@ -6,7 +6,32 @@
     <script src="vendors/jquery.min.js"></script>
     <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="styles/style.css" />
-    <title>Document</title>
+    <title>Hyunsu's to-do list</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>To-do list</h1>
+    </header>
+    <div>
+      <h2>Add item</h2>
+      <input
+        required
+        type="text"
+        placeholder="things to do"
+        class="js-new-item"
+      />
+      <button class="js-btn-add">Add item</button>
+    </div>
+    <div class="js-container">
+      <h2>List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
 </html>
