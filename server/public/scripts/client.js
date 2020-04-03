@@ -9,7 +9,7 @@ function init() {
 function addItem() {
   const newItem = {
     item: $(".js-new-item").val(),
-    complete: false,
+    complete: "N",
   };
   saveItem(newItem);
   $(".js-new-item").val("");
