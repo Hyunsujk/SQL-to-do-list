@@ -32,4 +32,20 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  const itemId = req.params.id;
+  console.log(itemId);
+  const queryText = `DELETE FROM "list" WHERE "id" = $1;`;
+
+  pool
+    .query(queryText, [itemId])
+    .then((responseDB) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

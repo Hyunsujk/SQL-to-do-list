@@ -4,7 +4,7 @@ let itemList = [];
 function init() {
   getList();
   $(".js-btn-add").on("click", clickAdd);
-  $(".js-btn-delete").on("click", clickDelete);
+  $(".js-container").on("click", ".js-btn-delete", clickDelete);
 }
 
 //
@@ -20,7 +20,8 @@ function clickAdd() {
   $(".js-new-item").val("");
 }
 
-function clickDelete() {
+function clickDelete(event) {
+  console.log(this);
   const itemId = event.target.dataset.id;
   deleteItem(itemId);
 }
@@ -64,6 +65,7 @@ function deleteItem(id) {
     url: `/list/${id}`,
   })
     .then((response) => {
+      console.log("Delete", response);
       getList();
     })
     .catch((err) => {
