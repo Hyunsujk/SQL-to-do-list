@@ -110,9 +110,9 @@ function render() {
     const item = itemList[i];
     $(".js-container").append(`
     <tr class="row">
-    <td class ="js-item">${item.item}</td>
-    <td><button class ="js-btn-complete" data-id="${item.id}" data-index="${i}">Complete</button></td>
-    <td><button class ="js-btn-delete" data-id="${item.id}">Delete</button></td>
+      <td class ="js-item">${item.item}</td>
+      <td><button class ="js-btn-complete" data-id="${item.id}" data-index="${i}">Complete</button></td>
+      <td><button class ="js-btn-delete" data-id="${item.id}">Delete</button></td>
     </tr>`);
     if (item.complete === "Y") {
       $(".js-container").children().addClass("complete");

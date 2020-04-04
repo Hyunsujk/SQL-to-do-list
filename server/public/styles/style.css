@@ -44,9 +44,7 @@ h1 {
   background-color: lightgray;
   text-decoration: line-through;
 }
-.disabled {
-  background-color: red;
-}
+
 .row + .row {
   border-top: 2px solid lavender;
 }
