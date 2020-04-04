@@ -2,7 +2,6 @@ $(document).ready(init);
 
 let itemList = [];
 let completedItemId = 0;
-let completedItemIndex = 0;
 
 function init() {
   getList();
@@ -32,9 +31,7 @@ function clickDelete(event) {
 
 function clickComplete(event) {
   completedItemId = event.target.dataset.id;
-  completedItemIndex = $(this).data("index");
   const $itemRowElement = $(this).parent().parent();
-  $itemRowElement.addClass("complete");
   const currentItem = $itemRowElement.children(".js-item").text().trim();
   const currentStatus = "Y";
   const completedItem = {
@@ -99,7 +96,6 @@ function updateItem(id, completedItem) {
     data: completedItem,
   })
     .then((response) => {
-      $(".js-container").children().data(completedItemId).addClass("complete");
       getList();
     })
     .catch((err) => {
@@ -113,14 +109,13 @@ function render() {
   for (let i = 0; i < itemList.length; i++) {
     const item = itemList[i];
     $(".js-container").append(`
-    <tr>
+    <tr class="row">
     <td class ="js-item">${item.item}</td>
     <td><button class ="js-btn-complete" data-id="${item.id}" data-index="${i}">Complete</button></td>
     <td><button class ="js-btn-delete" data-id="${item.id}">Delete</button></td>
     </tr>`);
     if (item.complete === "Y") {
-      console.log("It's completed");
-      console.log(item);
+      $(".js-container").children().addClass("complete");
     }
   }
 }
