@@ -48,4 +48,19 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+router.put("/:id", (req, res) => {
+  const itemId = req.params.id;
+  const completedItem = req.body;
+  const queryText = `UPDATE "list" SET "item"=$1, "complete"=$2 WHERE "id"=$3;`;
+  pool
+    .query(queryText, [completedItem.item, completedItem.complete, itemId])
+    .then((responseDB) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
