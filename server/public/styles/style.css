@@ -1,4 +1,52 @@
+body {
+  margin: 0px;
+}
+
+html {
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 5px;
+}
+
+h1 {
+  background: lavender;
+  margin: 0px;
+  padding: 20px;
+}
+
+.input-field {
+  margin: 20px auto;
+  background-color: snow;
+  border: 3px lavender solid;
+  border-radius: 5px;
+  width: 50%;
+  height: 90px;
+  line-height: 20px;
+}
+
+.text-input {
+  width: 250px;
+}
+
 .complete {
-  background-color: gray;
-  color: red;
+  background-color: lightgray;
+  text-decoration: line-through;
+}
+.disabled {
+  background-color: red;
+}
+.row + .row {
+  border-top: 2px solid lavender;
 }
