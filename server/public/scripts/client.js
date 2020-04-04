@@ -115,7 +115,8 @@ function render() {
       <td><button class ="js-btn-delete" data-id="${item.id}">Delete</button></td>
     </tr>`);
     if (item.complete === "Y") {
-      $(".js-container").children().addClass("complete");
+      const $el = $(".js-container").children().last();
+      $el.addClass("complete");
     }
   }
 }
