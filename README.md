@@ -6,7 +6,7 @@ Duration: 2 days / weekend challenge
 
 This application allows users to organize their task using the to-do list. Built with JavaScript, jQuery, Ajax get,post,delete and put method and SQL.
 
-- every line of code has comment of its purpose
+- every line of code has comment explaining its purpose
 
 ## Usage
 
